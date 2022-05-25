@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_blue/flutter_blue.dart';
 
-import 'device_screen.dart';
+import 'bluetooth_test_device_screen.dart';
 
 void main() {
   runApp(MyApp());

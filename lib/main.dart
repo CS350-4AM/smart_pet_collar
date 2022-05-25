@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:smart_pet_collar/home_page.dart';
+import 'package:smart_pet_collar/bluetooth_test/bluetooth_test_home_page.dart';
+import 'package:smart_pet_collar/pages/home_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -23,9 +24,12 @@ class MyApp extends StatelessWidget {
         // or simply save your changes to "hot reload" in a Flutter IDE).
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.grey,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home:
+      // HomePage(),
+      //블루투스 연결 테스트 페이지를 home 으로 두고 싶다면 아래 코드를 사용하세요!
+      MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
 }
