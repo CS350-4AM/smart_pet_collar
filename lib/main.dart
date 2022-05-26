@@ -38,6 +38,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.grey,
       ),
       home:
+      // Firestore 연결 테스트용 home!
         Scaffold(body: SafeArea(
           child: Container(
             child: FutureBuilder<DocumentSnapshot>(
@@ -65,6 +66,8 @@ class MyApp extends StatelessWidget {
           ),
         ),
         ),
+
+      // materialapp의 home은  원래 요거!
       // HomePage(),
       //블루투스 연결 테스트 페이지를 home 으로 두고 싶다면 아래 코드를 사용하세요!
       // MyHomePage(title: 'Flutter Demo Home Page'),
