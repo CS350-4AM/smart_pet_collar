@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:smart_pet_collar/pages/location_menu_page.dart';
 import 'package:smart_pet_collar/utils/constants.dart';
 
 class HomePage extends StatefulWidget {
@@ -12,7 +13,7 @@ class HomePage extends StatefulWidget {
 getMediaQueryWidth(context)=> MediaQuery.of(context).size.width;
 class _HomePageState extends State<HomePage> {
   //late : 선언은 미리, initialization은 runtime에.
-  //final : 한번 initialization 되면 값이 바뀌지 않음.
+  //final : 한번 initialization 되면 값이 바꿀수 없음.
   //static :
   //const :
   static const double outerHorizontalPaddingWidth = 18;
@@ -26,35 +27,71 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     double mediaQueryWidth = getMediaQueryWidth(context);
+    double menuCardWidgetWidth = (mediaQueryWidth-outerHorizontalPaddingWidth*2-spacingBetweenWidgetsWidth)/2;
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: kBackgroundColor,
         title: Text(widget.title, style: const TextStyle(color: Colors.black),),
+        backgroundColor: kBackgroundColor,
         elevation: 0,
       ),
       body: Container(
         padding: const EdgeInsets.symmetric(horizontal: outerHorizontalPaddingWidth),
         color: kBackgroundColor,
         child: ListView(
-
           children: [
             Row(
               children: [
                 MenuCardWidget(
-                  title: 'Menu 1',
+                  title: 'Location',
                   iconData: CupertinoIcons.location_circle,
-                  width: (mediaQueryWidth-outerHorizontalPaddingWidth*2-spacingBetweenWidgetsWidth)/2,
+                  width: menuCardWidgetWidth,
+                  onPressed: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => LocationMenuPage()),);
+                  },
                 ),
                 const SizedBox(width: spacingBetweenWidgetsWidth),
                 MenuCardWidget(
-                  title: 'Menu 2',
-                  iconData: CupertinoIcons.heart,
-                  width: (mediaQueryWidth-outerHorizontalPaddingWidth*2-spacingBetweenWidgetsWidth)/2,
+                  title: 'Activity',
+                  iconData: CupertinoIcons.paw,
+                  width: menuCardWidgetWidth,
+                  onPressed: (){},
                 ),
               ],
             ),
-            Row(),
-            Row(),
+            Row(
+              children: [
+                MenuCardWidget(
+                  title: 'Heart Rate',
+                  iconData: CupertinoIcons.heart,
+                  width: menuCardWidgetWidth,
+                  onPressed: (){},
+                ),
+                const SizedBox(width: spacingBetweenWidgetsWidth),
+                MenuCardWidget(
+                  title: 'Breathe Rate',
+                  iconData: CupertinoIcons.wind,
+                  width: menuCardWidgetWidth,
+                  onPressed: (){},
+                ),
+              ],
+            ),
+            Row(
+              children: [
+                MenuCardWidget(
+                  title: 'Sleep',
+                  iconData: CupertinoIcons.moon,
+                  width: menuCardWidgetWidth,
+                  onPressed: (){},
+                ),
+                const SizedBox(width: spacingBetweenWidgetsWidth),
+                MenuCardWidget(
+                  title: 'Emotion',
+                  iconData: CupertinoIcons.smiley,
+                  width: menuCardWidgetWidth,
+                  onPressed: (){},
+                ),
+              ],
+            ),
           ],
         ),
       ),
@@ -68,16 +105,18 @@ class MenuCardWidget extends StatelessWidget {
     required this.width,
     required this.title,
     required this.iconData,
+    required this.onPressed
 
   }) : super(key: key);
   final double width;
   final String title; //? means nullable : call site에서 잘 해야 함
   final IconData iconData;
+  final void Function() onPressed;
   @override
   Widget build(BuildContext context) {
     return Expanded(
       child: TextButton(
-        onPressed: (){},
+        onPressed: onPressed,
         child: Container(
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(8.0),

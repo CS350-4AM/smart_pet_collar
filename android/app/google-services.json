@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "478731322934",
+    "firebase_url": "https://smart-pet-collar-4am-default-rtdb.firebaseio.com",
+    "project_id": "smart-pet-collar-4am",
+    "storage_bucket": "smart-pet-collar-4am.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:478731322934:android:6a1633a20f763043d3fa97",
+        "android_client_info": {
+          "package_name": "com.example.smart_pet_collar"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "478731322934-mg1ufotprvtks25ha5lo7qbs1jseec3q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAgGMyMIHnuIx8FStb4ulzjpVkKNPs8BYw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "478731322934-mg1ufotprvtks25ha5lo7qbs1jseec3q.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "478731322934-r7hqau2tolhl1lql7boa2aqbvsokplnt.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.smartPetCollar"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
