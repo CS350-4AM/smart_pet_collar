@@ -41,6 +41,7 @@ class MyApp extends StatelessWidget {
       // Firestore 연결 테스트용 home!
         Scaffold(body: SafeArea(
           child: Container(
+            //커밋 테스트용 변경사항
             child: FutureBuilder<DocumentSnapshot>(
               future: collectionReference.doc('heartrate').get(),
               builder:
