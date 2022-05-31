@@ -20,9 +20,6 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    FirebaseFirestore firestore = FirebaseFirestore.instance;
-    CollectionReference collectionReference = firestore.collection('sensor');
-    // print(collectionReference);
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
@@ -38,38 +35,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.grey,
       ),
       home:
-      // Firestore 연결 테스트용 home!
-        Scaffold(body: SafeArea(
-          child: Container(
-            //커밋 테스트용 변경사항
-            child: FutureBuilder<DocumentSnapshot>(
-              future: collectionReference.doc('heartrate').get(),
-              builder:
-                  (BuildContext context, AsyncSnapshot<DocumentSnapshot> snapshot) {
-
-                if (snapshot.hasError) {
-                  print(snapshot);
-                  return Text("Something went wrong");
-                }
-
-                if (snapshot.hasData && !snapshot.data!.exists) {
-                  return Text("Document does not exist");
-                }
-
-                if (snapshot.connectionState == ConnectionState.done) {
-                  Map<String, dynamic> data = snapshot.data!.data() as Map<String, dynamic>;
-                  return Text("Full Name: ${data['full_name']} ${data['last_name']}");
-                }
-
-                return Text("loading");
-              },
-            ),
-          ),
-        ),
-        ),
-
-      // materialapp의 home은  원래 요거!
-      // HomePage(),
+      HomePage(),
       //블루투스 연결 테스트 페이지를 home 으로 두고 싶다면 아래 코드를 사용하세요!
       // MyHomePage(title: 'Flutter Demo Home Page'),
     );

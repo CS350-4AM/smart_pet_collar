@@ -1,7 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:smart_pet_collar/pages/activity_page.dart';
 import 'package:smart_pet_collar/pages/location_menu_page.dart';
+import 'package:smart_pet_collar/pages/test_firebase_page.dart';
 import 'package:smart_pet_collar/utils/constants.dart';
+
+import 'breath_rate_page.dart';
+import 'heart_rate_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -45,16 +50,14 @@ class _HomePageState extends State<HomePage> {
                   title: 'Location',
                   iconData: CupertinoIcons.location_circle,
                   width: menuCardWidgetWidth,
-                  onPressed: (){
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => LocationMenuPage()),);
-                  },
+                  onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context) => LocationMenuPage()));},
                 ),
                 const SizedBox(width: spacingBetweenWidgetsWidth),
                 MenuCardWidget(
                   title: 'Activity',
                   iconData: CupertinoIcons.paw,
                   width: menuCardWidgetWidth,
-                  onPressed: (){},
+                  onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context) => ActivityPage()));},
                 ),
               ],
             ),
@@ -64,14 +67,14 @@ class _HomePageState extends State<HomePage> {
                   title: 'Heart Rate',
                   iconData: CupertinoIcons.heart,
                   width: menuCardWidgetWidth,
-                  onPressed: (){},
+                  onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context) => HeartRatePage()));},
                 ),
                 const SizedBox(width: spacingBetweenWidgetsWidth),
                 MenuCardWidget(
-                  title: 'Breathe Rate',
+                  title: 'Breath Rate',
                   iconData: CupertinoIcons.wind,
                   width: menuCardWidgetWidth,
-                  onPressed: (){},
+                  onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context) => BreathRatePage()));},
                 ),
               ],
             ),
@@ -91,6 +94,10 @@ class _HomePageState extends State<HomePage> {
                   onPressed: (){},
                 ),
               ],
+            ),
+            TextButton(
+              onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context) => TestFirebasePage()),);},
+              child: const Text('Go to page for testing firebase'),
             ),
           ],
         ),
