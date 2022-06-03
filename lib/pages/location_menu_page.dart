@@ -12,13 +12,14 @@ class LocationMenuPage extends StatefulWidget {
 class _LocationMenuPageState extends State<LocationMenuPage> {
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: kBackgroundColor,
+        backgroundColor: kWhiteColor,
         elevation: 0,
         title: const Text('Location'),
       ),
-      backgroundColor: kBackgroundColor,
+      backgroundColor: kWhiteColor,
       body: Container(),
     );
   }

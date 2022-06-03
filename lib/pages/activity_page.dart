@@ -13,11 +13,11 @@ class _ActivityPageState extends State<ActivityPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: kBackgroundColor,
+        backgroundColor: kWhiteColor,
         elevation: 0,
         title: const Text('Activity'),
       ),
-      backgroundColor: kBackgroundColor,
+      backgroundColor: kWhiteColor,
       body: Container(),
     );
   }

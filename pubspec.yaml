@@ -37,7 +37,8 @@ dependencies:
   cupertino_icons: ^1.0.2
   firebase_core: ^1.17.0
   cloud_firestore: ^3.1.16
-  fl_chart: ^0.50.6
+#  fl_chart: ^0.50.6 #쓸지말지 고민중
+#  location: ^4.4.0
 
 dev_dependencies:
   flutter_test:

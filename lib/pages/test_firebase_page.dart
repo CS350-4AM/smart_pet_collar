@@ -17,11 +17,6 @@ class TestFirebasePage extends StatefulWidget {
 class _TestFirebasePageState extends State<TestFirebasePage> {
 
   @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-  }
-  @override
   Widget build(BuildContext context) {
     // FirebaseFirestore firestore = FirebaseFirestore.instance;
     // Query queryGpsSensor = firestore.collection('GPS sensor').orderBy('createdAt', descending: true).limit(10);
@@ -34,7 +29,7 @@ class _TestFirebasePageState extends State<TestFirebasePage> {
     // final Stream<QuerySnapshot> _sensorStream = FirebaseFirestore.instance.collection('breath sensor').orderBy('createdAt', descending: true).limit(10).snapshots();
 
     return Scaffold(
-      appBar: AppBar(title: const Text('test firebase page'),backgroundColor: kBackgroundColor,
+      appBar: AppBar(title: const Text('test firebase page'),backgroundColor: kWhiteColor,
         elevation: 0,),
       body: SafeArea(
           child: Container(

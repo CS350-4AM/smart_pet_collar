@@ -1,17 +1,20 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:smart_pet_collar/pages/activity_page.dart';
+import 'package:smart_pet_collar/pages/emotion_page.dart';
 import 'package:smart_pet_collar/pages/location_menu_page.dart';
+import 'package:smart_pet_collar/pages/sleep_page_normal.dart';
 import 'package:smart_pet_collar/pages/test_firebase_page.dart';
 import 'package:smart_pet_collar/utils/constants.dart';
 
 import 'breath_rate_page.dart';
 import 'heart_rate_page.dart';
+import 'notification_page.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
-
-  final title = 'Home Page';
+  const HomePage({Key? key, this.username = 'default username'}) : super(key: key);
+  final username;
+  final title = 'Smart Pet Collar';
   @override
   _HomePageState createState() => _HomePageState();
 }
@@ -23,25 +26,70 @@ class _HomePageState extends State<HomePage> {
   //const :
   static const double outerHorizontalPaddingWidth = 18;
   static const double spacingBetweenWidgetsWidth = 11;
-
+  String username = 'default username';
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
+    username = widget.username;
   }
   @override
   Widget build(BuildContext context) {
     double mediaQueryWidth = getMediaQueryWidth(context);
     double menuCardWidgetWidth = (mediaQueryWidth-outerHorizontalPaddingWidth*2-spacingBetweenWidgetsWidth)/2;
     return Scaffold(
+      drawer: Drawer(
+        // Add a ListView to the drawer. This ensures the user can scroll
+        // through the options in the drawer if there isn't enough vertical
+        // space to fit everything.
+        child: ListView(
+          // Important: Remove any padding from the ListView.
+          padding: EdgeInsets.zero,
+          children: [
+            const DrawerHeader(
+              decoration: BoxDecoration(
+                color: Colors.blueGrey,
+              ),
+              child: Text('Menu', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
+            ),
+            ListTile(
+              title: const Text('Account'),
+              onTap: () {
+                // Update the state of the app
+                // ...
+                // Then close the drawer
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              title: const Text('Sign Out'),
+              onTap: () {
+                // Update the state of the app
+                // ...
+                // Then close the drawer
+                Navigator.pop(context);
+              },
+            ),
+          ],
+        ),
+      ),
       appBar: AppBar(
         title: Text(widget.title, style: const TextStyle(color: Colors.black),),
-        backgroundColor: kBackgroundColor,
+        backgroundColor: kWhiteColor,
         elevation: 0,
+        actions: [
+          IconButton(
+              onPressed: (){
+                //TODO: Notification 화면으로 넘어가기
+                Navigator.push(context, MaterialPageRoute(builder: (context) => NotificationPage()));
+              },
+              icon: const Icon(Icons.notifications_none),
+          ),
+        ],
       ),
+
       body: Container(
         padding: const EdgeInsets.symmetric(horizontal: outerHorizontalPaddingWidth),
-        color: kBackgroundColor,
+        color: kWhiteColor,
         child: ListView(
           children: [
             Row(
@@ -84,14 +132,14 @@ class _HomePageState extends State<HomePage> {
                   title: 'Sleep',
                   iconData: CupertinoIcons.moon,
                   width: menuCardWidgetWidth,
-                  onPressed: (){},
+                  onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context) => SleepPageNormal()));},
                 ),
                 const SizedBox(width: spacingBetweenWidgetsWidth),
                 MenuCardWidget(
                   title: 'Emotion',
                   iconData: CupertinoIcons.smiley,
                   width: menuCardWidgetWidth,
-                  onPressed: (){},
+                  onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context) => EmotionPage()));},
                 ),
               ],
             ),
