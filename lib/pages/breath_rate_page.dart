@@ -34,27 +34,30 @@ class _BreathRatePageState extends State<BreathRatePage> {
                 stream: _sensorStream,
                 builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
                   if (snapshot.hasError) {
-                    return Container(color: Colors.red, child: const Text('Something went wrong'));
+                    return Container( child: const Text('Something went wrong'));
                   }
                   if (snapshot.connectionState == ConnectionState.waiting) {
-                    return Container(color: Colors.red, child: const Text("Loading"));
+                    return Container( child: const Text("Loading"));
                   }
-                  return Container(
-                    child: snapshot.data!.docs.map((DocumentSnapshot document) {
-                      Map<String, dynamic> data = document.data()! as Map<String, dynamic>;
-                      return Center(
-                        child: Builder(
-                            builder: (context) {
-                              return Text(
-                                //TODO: heart rate -> breathe rate 바꾸기??
-                                (int.parse(data['heart_rate'])*0.25).round().toString()+'/min',
-                                // '21/min',
-                                style: const TextStyle(fontSize: 22, fontWeight: FontWeight.w600),
-                              );}
-                        ),
-                      );
-                    }).toList().first,
-                  );
+                  try{
+                    return Container(
+                      child: snapshot.data!.docs.map((DocumentSnapshot document) {
+                        Map<String, dynamic> data = document.data()! as Map<String, dynamic>;
+                        return Center(
+                          child: Builder(
+                              builder: (context) {
+                                return Text(
+                                  //TODO: heart rate -> breathe rate 현재 constant: 0.25임
+                                  (double.parse(data['heart_rate'])*0.25).round().toString()+'/min',
+                                  style: const TextStyle(fontSize: 22, fontWeight: FontWeight.w600),
+                                );}
+                          ),
+                        );
+                      }).toList().first,
+                    );
+                  } catch(e) {
+                    return Text('Cannot get heart rate.. e: '+ e.toString(), softWrap: true,);
+                  }
                 },
               ),
             ),

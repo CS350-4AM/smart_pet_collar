@@ -79,7 +79,6 @@ class _HomePageState extends State<HomePage> {
         actions: [
           IconButton(
               onPressed: (){
-                //TODO: Notification 화면으로 넘어가기
                 Navigator.push(context, MaterialPageRoute(builder: (context) => NotificationPage()));
               },
               icon: const Icon(Icons.notifications_none),
@@ -143,10 +142,11 @@ class _HomePageState extends State<HomePage> {
                 ),
               ],
             ),
-            TextButton(
-              onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context) => TestFirebasePage()),);},
-              child: const Text('Go to page for testing firebase'),
-            ),
+            //test_firebase_page 쓰고 싶으면 아래를 주석 해제
+            // TextButton(
+            //   onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context) => TestFirebasePage()),);},
+            //   child: const Text('Go to page for testing firebase'),
+            // ),
           ],
         ),
       ),

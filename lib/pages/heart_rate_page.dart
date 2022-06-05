@@ -23,10 +23,12 @@ class _HeartRatePageState extends State<HeartRatePage> {
       body: SafeArea(
         child: Column(
           children: [
+            //하트 아이콘
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 50),
               child: const Icon(CupertinoIcons.heart, size: 130),
             ),
+            //sensor 값 Text
             Center(
               child: StreamBuilder<QuerySnapshot>(
                 stream: _sensorStream,
@@ -37,20 +39,24 @@ class _HeartRatePageState extends State<HeartRatePage> {
                   if (snapshot.connectionState == ConnectionState.waiting) {
                     return Container(color: Colors.red, child: const Text("Loading"));
                   }
-                  return Container(
-                    child: snapshot.data!.docs.map((DocumentSnapshot document) {
+                  try{
+                    return Container(
+                      child: snapshot.data!.docs.map((DocumentSnapshot document) {
                         Map<String, dynamic> data = document.data()! as Map<String, dynamic>;
                         return Center(
                           child: Builder(
-                                builder: (context) {
-                                  return Text(
-                                    data['heart_rate'].toString()+' Bpm',
-                                    style: const TextStyle(fontSize: 22, fontWeight: FontWeight.w600),
-                                  );}
+                              builder: (context) {
+                                return Text(
+                                  (double.parse(data['heart_rate'])).round().toString()+' Bpm',
+                                  style: const TextStyle(fontSize: 22, fontWeight: FontWeight.w600),
+                                );}
                           ),
                         );
                       }).toList().first,
-                  );
+                    );
+                  } catch(e) {
+                    return Text('Cannot get heart rate.. e: '+ e.toString(), softWrap: true,);
+                  }
                 },
               ),
             ),

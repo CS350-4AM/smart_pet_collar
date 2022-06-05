@@ -27,7 +27,6 @@ class _NotificationPageState extends State<NotificationPage> {
                 Divider(),
                 TextButton(
                   onPressed: (){
-                    //TODO: go to sleep page
                     Navigator.push(context, MaterialPageRoute(builder: (context) => SleepPageProblem()));
                   },
                   child: Container(

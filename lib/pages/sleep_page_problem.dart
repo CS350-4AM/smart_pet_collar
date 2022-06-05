@@ -13,6 +13,7 @@ class SleepPageProblem extends StatefulWidget {
 class _SleepPageProblemState extends State<SleepPageProblem> {
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       appBar: AppBar(title: const Text('Heart Rate'),backgroundColor: kWhiteColor,
         elevation: 0,),
@@ -24,8 +25,37 @@ class _SleepPageProblemState extends State<SleepPageProblem> {
               child: const Icon(CupertinoIcons.moon, size: 130),
             ),
             const Center(
-              child: Text('Latest Sleep Has Problem.',style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600, color: Colors.red)),
+              child: Text('Latest Sleep Has Problem.',style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600, color: Color(0xffD00303))),
             ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 18),
+              child: Column(
+                children: [
+                const SizedBox(height: 60),
+                const Divider(),
+                  Row(
+                    children: [
+                      const Padding(
+                        padding: EdgeInsets.all(16.0),
+                        child: Icon(CupertinoIcons.heart, size: 40,),
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: const [
+                          Text('Average   72 bpm'),
+                          SizedBox(height: 5),
+                          Text('Highest    158 bpm', style: TextStyle(color: kRedColor),),
+                        ],
+                      ),
+                    ],
+                  ),
+                  const Divider(),
+                ],
+              ),
+            ),
+
+
+
           ],
         ),
       ),
