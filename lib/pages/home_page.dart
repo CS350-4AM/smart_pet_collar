@@ -26,7 +26,7 @@ class _HomePageState extends State<HomePage> {
   //const :
   static const double outerHorizontalPaddingWidth = 18;
   static const double spacingBetweenWidgetsWidth = 11;
-  String username = 'default username';
+  late String username;
   @override
   void initState() {
     super.initState();
@@ -45,11 +45,11 @@ class _HomePageState extends State<HomePage> {
           // Important: Remove any padding from the ListView.
           padding: EdgeInsets.zero,
           children: [
-            const DrawerHeader(
+            DrawerHeader(
               decoration: BoxDecoration(
-                color: Colors.blueGrey,
+                color: kMidGreyColor.withOpacity(0.5),
               ),
-              child: Text('Menu', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
+              child: Text(username, style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
             ),
             ListTile(
               title: const Text('Account'),
@@ -175,7 +175,7 @@ class MenuCardWidget extends StatelessWidget {
         child: Container(
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(8.0),
-            color: const Color(0xffF7F7F7),
+            color: kLightGreyColor,
           ),
           width: width,
           height: width,
