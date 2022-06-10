@@ -34,10 +34,10 @@ class _HeartRatePageState extends State<HeartRatePage> {
                 stream: _sensorStream,
                 builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
                   if (snapshot.hasError) {
-                    return Container(color: Colors.red, child: const Text('Something went wrong'));
+                    return Center(child: Container(child: const Text('Something went wrong')));
                   }
                   if (snapshot.connectionState == ConnectionState.waiting) {
-                    return Container(color: Colors.red, child: const Text("Loading"));
+                    return Center(child: Container(child: const Text("Loading")));
                   }
                   try{
                     return Container(

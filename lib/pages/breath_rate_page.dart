@@ -34,10 +34,10 @@ class _BreathRatePageState extends State<BreathRatePage> {
                 stream: _sensorStream,
                 builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
                   if (snapshot.hasError) {
-                    return Container( child: const Text('Something went wrong'));
+                    return Center(child: Container(child: const Text('Something went wrong')));
                   }
                   if (snapshot.connectionState == ConnectionState.waiting) {
-                    return Container( child: const Text("Loading"));
+                    return Center(child: Container(child: const Text("Loading")));
                   }
                   try{
                     return Container(

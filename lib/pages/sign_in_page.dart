@@ -84,6 +84,8 @@ class _SignInPageState extends State<SignInPage> {
                       ),
                     ),
                     SizedBox(height: 8),
+
+                    //Signin 버튼
                     SizedBox(
                       width: double.infinity,
                       height: 45,
