@@ -50,6 +50,11 @@ class _SleepPageProblemState extends State<SleepPageProblem> {
                     ],
                   ),
                   const Divider(),
+                  SizedBox(height: 20),
+                  Image.asset(
+                    'assets/images/sleep_problem_graph.png',
+                    // height: 100,
+                  ),
                 ],
               ),
             ),

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:smart_pet_collar/pages/home_page.dart';
 
 import '../utils/constants.dart';
+import 'join_us_page.dart';
 
 class SignInPage extends StatefulWidget {
   const SignInPage({Key? key}) : super(key: key);
@@ -27,6 +28,7 @@ class _SignInPageState extends State<SignInPage> {
     // Clean up the controller when the widget is removed from the widget tree.
     // This also removes the _printLatestValue listener.
     idTextFieldController.dispose();
+    pwTextFieldController.dispose();
     super.dispose();
   }
 
@@ -38,53 +40,53 @@ class _SignInPageState extends State<SignInPage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              const SizedBox(height: 100),
               Image.asset('assets/images/puppy@3x.png', height: 100,),
-              SizedBox(height: 12,),
-              Text('Smart Pet Collar', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
-              SizedBox(height: 40,),
+              const SizedBox(height: 12),
+              const Text('Smart Pet Collar', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
+              const SizedBox(height: 40),
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: 30),
+                padding: const EdgeInsets.symmetric(horizontal: 30),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     // Text('Sign in to start', style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600)),
-                    SizedBox(height: 10),
+                    const SizedBox(height: 10),
                     SizedBox(
                       height: 45,
                       child: TextField(
                         controller: idTextFieldController,
                         decoration: InputDecoration(
-                          contentPadding: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
+                          contentPadding: const EdgeInsets.symmetric(vertical: 0, horizontal: 10),
                           hintText: 'ID',
                           enabledBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(5.0),
-                              borderSide: BorderSide(color: kMidGreyColor)),
+                              borderSide: const BorderSide(color: kMidGreyColor)),
                           focusedBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(5.0),
-                              borderSide: BorderSide(color: kMidGreyColor)),
+                              borderSide: const BorderSide(color: kMidGreyColor)),
                         ),
                       ),
                     ),
-                    SizedBox(height: 8),
+                    const SizedBox(height: 8),
                     SizedBox(
                       height: 45,
                       child: TextField(
                         controller: pwTextFieldController,
                         obscureText: true,
                         decoration: InputDecoration(
-                          contentPadding: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
+                          contentPadding: const EdgeInsets.symmetric(vertical: 0, horizontal: 10),
                           hintText: 'Password',
                           enabledBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(5.0),
-                              borderSide: BorderSide(color: Color(0xffcccccc))),
+                              borderSide: const BorderSide(color: Color(0xffcccccc))),
                           focusedBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(5.0),
-                              borderSide: BorderSide(color: Color(0xffcccccc))),
+                              borderSide: const BorderSide(color: Color(0xffcccccc))),
                         ),
                       ),
                     ),
-                    SizedBox(height: 8),
-
+                    const SizedBox(height: 8),
                     //Signin 버튼
                     SizedBox(
                       width: double.infinity,
@@ -109,11 +111,35 @@ class _SignInPageState extends State<SignInPage> {
                             ),
                           ),
                       ),
+                    ),
+                    const SizedBox(height: 100),
+                    Center(
+                      child: TextButton(
+                        onPressed: (){
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => JoinUsPage()));
+                      },
+                        child: const Text(
+                        'Join Us',
+                        style: TextStyle(
+                          decoration: TextDecoration.underline,
+                          color: kBlueColor,
+                        ),),
+                      ),
+                    ),
+                    Center(
+                      child: TextButton(
+                        onPressed: (){},
+                        child: const Text(
+                        'Forgot ID/Password?',
+                        style: TextStyle(
+                          decoration: TextDecoration.underline,
+                          ),
+                        ),
+                      ),
                     )
                   ],
                 ),
               ),
-
             ],
           ),
         ),

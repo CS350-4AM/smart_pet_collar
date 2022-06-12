@@ -75,32 +75,5 @@ class _TestFirebasePageState extends State<TestFirebasePage> {
           ),
       ),
     );
-    // return Scaffold(body: SafeArea(
-    //   child: Container(
-    //     child: FutureBuilder<DocumentSnapshot>(
-    //       future: queryGpsSensor.limit(10).get(),
-    //       builder:
-    //           (BuildContext context, AsyncSnapshot<DocumentSnapshot> snapshot) {
-    //
-    //         if (snapshot.hasError) {
-    //           print(snapshot);
-    //           return Text(snapshot.error.toString());
-    //         }
-    //
-    //         if (snapshot.hasData && !snapshot.data!.exists) {
-    //           return const Text("Document does not exist");
-    //         }
-    //
-    //         if (snapshot.connectionState == ConnectionState.done) {
-    //           Map<String, dynamic> data = snapshot.data!.data() as Map<String, dynamic>;
-    //           return Text("zzzzz: ${data['0']} ${data['1']}");
-    //         }
-    //
-    //         return const Text("loading");
-    //       },
-    //     ),
-    //   ),
-    // ),
-    // );
   }
 }

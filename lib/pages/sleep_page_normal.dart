@@ -50,6 +50,11 @@ class _SleepPageNormalState extends State<SleepPageNormal> {
                     ],
                   ),
                   const Divider(),
+                  SizedBox(height: 20),
+                  Image.asset(
+                    'assets/images/sleep_normal_graph.png',
+                    // height: 100,
+                  ),
                 ],
               ),
             ),

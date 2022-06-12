@@ -61,42 +61,14 @@ class _BreathRatePageState extends State<BreathRatePage> {
                 },
               ),
             ),
-            //아래 : Debug용
-            // Container(
-            //   height: 100,
-            //   color: Colors.blueGrey,
-            //   child: StreamBuilder<QuerySnapshot>(
-            //     stream: _sensorStream,
-            //     builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
-            //       if (snapshot.hasError) {
-            //         return Container(color: Colors.red, child: const Text('Something went wrong'));
-            //       }
-            //       if (snapshot.connectionState == ConnectionState.waiting) {
-            //         return Container(color: Colors.red, child: const Text("Loading"));
-            //       }
-            //       return ListView(
-            //         children: snapshot.data!.docs.map((DocumentSnapshot document) {
-            //           Map<String, dynamic> data = document.data()! as Map<String, dynamic>;
-            //           return Container(
-            //             height: 100,
-            //             color: Colors.blue,
-            //             child: ListTile(
-            //               title: Builder(
-            //                   builder: (context) {
-            //                     return Text(data['heart_rate'].toString()+data['created_at'].toString());
-            //                   }
-            //               ),
-            //               // subtitle: Text(data['company']),
-            //             ),
-            //           );
-            //         }).toList(),
-            //       );
-            //     },
-            //     // builder: (context, snapshot) {
-            //     //   return Text("zzzzz: ${queryResult['0']} ${data['1']}");
-            //     // }
-            //   ),
-            // ),
+            SizedBox(height: 50),
+            Padding(
+              padding: const EdgeInsets.all(18.0),
+              child: Image.asset(
+                'assets/images/breath_graph.png',
+                // height: 100,
+              ),
+            ),
           ],
         ),
       ),

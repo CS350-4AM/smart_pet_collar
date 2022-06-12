@@ -29,8 +29,8 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.grey,
         scaffoldBackgroundColor: kWhiteColor,
       ),
-      home:
-        LoadingPage(),
+      debugShowCheckedModeBanner:false,
+      home: LoadingPage(),
       // SignInPage(),
       // HomePage(username: 'user name example',),
       //블루투스 연결 테스트 페이지를 home 으로 두고 싶다면 아래 코드를 사용하세요!

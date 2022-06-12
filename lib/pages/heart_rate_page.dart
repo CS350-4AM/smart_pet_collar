@@ -60,6 +60,14 @@ class _HeartRatePageState extends State<HeartRatePage> {
                 },
               ),
             ),
+            SizedBox(height: 50),
+            Padding(
+              padding: const EdgeInsets.all(18.0),
+              child: Image.asset(
+                'assets/images/heart_graph.png',
+                // height: 100,
+              ),
+            ),
             //아래 : Debug용
             // Container(
             //   height: 100,
