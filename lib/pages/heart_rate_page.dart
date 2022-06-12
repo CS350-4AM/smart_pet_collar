@@ -15,7 +15,8 @@ class HeartRatePage extends StatefulWidget {
 class _HeartRatePageState extends State<HeartRatePage> {
   @override
   Widget build(BuildContext context) {
-    final Stream<QuerySnapshot> _sensorStream = FirebaseFirestore.instance.collection('heart sensor').orderBy('created_at', descending: true).limit(1).snapshots();
+    final Stream<QuerySnapshot> _sensorStream = FirebaseFirestore.instance
+        .collection('heart sensor').orderBy('created_at', descending: true).limit(1).snapshots();
 
     return Scaffold(
       appBar: AppBar(title: const Text('Heart Rate'),backgroundColor: kWhiteColor,

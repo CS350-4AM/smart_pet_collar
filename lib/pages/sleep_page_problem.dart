@@ -15,7 +15,7 @@ class _SleepPageProblemState extends State<SleepPageProblem> {
   Widget build(BuildContext context) {
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Heart Rate'),backgroundColor: kWhiteColor,
+      appBar: AppBar(title: const Text('Sleep'),backgroundColor: kWhiteColor,
         elevation: 0,),
       body: SafeArea(
         child: Column(
